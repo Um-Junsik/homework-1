@@ -64,22 +64,12 @@ function Input() {
       return getErrorMsg("01", { title, contents });
     }
 
-    // 이미 존재하는 todo 항목이면 오류
-    const validationArr = todos.filter(
-      (item) => item.title === title && item.contents === contents
-    );
-
-    // "02" : 내용 중복 안내
-    if (validationArr.length > 0) {
-      return getErrorMsg("02", { title, contents });
-    }
-
     // 추가하려는 todo를 newTodo라는 객체로 세로 만듦
     const newTodo = {
       title,
       contents,
       isDone: false,
-      // id: uuidv4(),
+      id: uuidv4(),
     };
 
     // todo를 추가하는 reducer 호출
